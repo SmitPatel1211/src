@@ -4,6 +4,7 @@
 <head>
   <title>Marriage Biodata</title>
   <style>
+    /* Your existing CSS styles */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -63,6 +64,48 @@
       margin: 0 auto;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
+
+    /* New CSS for slider */
+    .slideshow-container {
+      max-width: 100%;
+      position: relative;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slideshow-container img {
+      display: none;
+      width: 100%;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
   </style>
 </head>
 
@@ -102,18 +145,41 @@
         <!-- Add more occupation details here -->
       </div>
     </div>
-    
+
     <div class="section">
       <div class="section-header">Photo Gallery</div>
-      <div class="section-content">
-        <img src="photossmit/1000051024.JPEG" alt="Your Photo">
-        <img src="photossmit/1000052702.jpg" alt="Your Photo">
-        <img src="photossmit/IMG_4582.jpg" alt="Your Photo">
-        <img src="photossmit/IMG_5137.jpg" alt="Your Photo">
+      <div class="slideshow-container">
+        <img class="mySlides" src="photossmit/1000051024.JPEG" alt="Your Photo">
+        <img class="mySlides" src="photossmit/1000052702.jpg" alt="Your Photo">
+        <img class="mySlides" src="photossmit/IMG_4582.jpg" alt="Your Photo">
+        <img class="mySlides" src="photossmit/IMG_5137.jpg" alt="Your Photo">
         <!-- Add more photos if needed -->
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
     </div>
   </div>
+
+  <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+  </script>
 </body>
 
 </html>
