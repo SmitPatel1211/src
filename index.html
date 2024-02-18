@@ -157,12 +157,23 @@
     </div>
 
     <div class="section">
+      <div class="section-header">Address</div>
+      <div class="section-content">
+        <p><span style="color: #f03c69;"></span>31 Satyanarayan society, Visnagar, Gujarat, India - 384315</p>
+        <!-- Add more occupation details here -->
+        <!-- Function to open map -->
+        
+      </div>
+    </div>
+    
+    
+
+    <div class="section">
       <div class="section-header">Photo Gallery</div>
       <div class="slideshow-container">
         <img class="mySlides" src="photossmit/IMG_5137.jpg" alt="Your Photo">
         <img class="mySlides" src="photossmit/1000052702.jpg" alt="Your Photo">
         <img class="mySlides" src="photossmit/IMG_4582.jpg" alt="Your Photo">
-        
         <img class="mySlides" src="photossmit/1000051024.JPEG" alt="Your Photo">
         <!-- Add more photos if needed -->
         <!-- Next and previous buttons -->
@@ -170,28 +181,31 @@
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
     </div>
-  </div>
-
-  <script>
-    var slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    
+    <script>
+      var slideIndex = 0;
+      showSlides();
+    
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
       }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1 }
-      slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 8000); // Change image every 2 seconds
-    }
-
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-  </script>
+    
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+    </script>
+    
+  
 </body>
 
 </html>
